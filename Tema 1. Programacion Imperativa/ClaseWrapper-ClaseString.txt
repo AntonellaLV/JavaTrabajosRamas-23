@@ -1,0 +1,40 @@
+Clase Wrapper:
+La Clase Wrapper en Java es una serie de clases que permiten convertir tipos primitivos en objetos y viceversa.
+Los tipos primitivos en Java son int, float, double, char, boolean, etc.
+Estas clases Wrapper se utilizan para trabajar con tipos primitivos como objetos en situaciones donde se requiere un objeto
+en lugar de un tipo primitivo. Las clases Wrapper son útiles en muchas operaciones, como colecciones (por ejemplo, ArrayList)
+que no pueden contener tipos primitivos.
+
+Algunos ejemplos de clases Wrapper y sus tipos primitivos asociados:
+
+Integer: Clase Wrapper para el tipo primitivo int.
+Float: Clase Wrapper para el tipo primitivo float.
+Double: Clase Wrapper para el tipo primitivo double.
+Character: Clase Wrapper para el tipo primitivo char.
+Boolean: Clase Wrapper para el tipo primitivo boolean.
+Las clases Wrapper proporcionan métodos útiles para realizar conversiones entre tipos primitivos y objetos,
+así como operaciones matemáticas y comparaciones. Por ejemplo, se pueden usar métodos como parseInt en la clase Integer
+para convertir una cadena en un entero, o valueOf para convertir un tipo primitivo en un objeto Wrapper.
+
+Clase String:
+La Clase String en Java es una clase fundamental que se utiliza para representar cadenas de caracteres.
+Es una de las clases más utilizadas en Java y proporciona numerosos métodos y funcionalidades para manipular cadenas de caracteres.
+
+Algunas características importantes de la Clase String en Java incluyen:
+
+Inmutabilidad: Las cadenas de caracteres en Java son inmutables, lo que significa que una vez que se crea una cadena,
+no se puede cambiar su contenido. En cambio, cualquier modificación en una cadena de caracteres crea una nueva cadena.
+
+Operaciones de concatenación: Se pueden concatenar cadenas de caracteres utilizando el operador + o el método concat().
+Por ejemplo, "Hola, " + "mundo" crea una nueva cadena que contiene "Hola, mundo".
+
+Métodos útiles: La clase String proporciona numerosos métodos para realizar operaciones comunes en cadenas, como búsqueda de subcadenas,
+reemplazo, división, conversión de mayúsculas y minúsculas, y más.
+
+Comparación de cadenas: Se pueden comparar cadenas utilizando métodos como equals(), compareTo(), startsWith(), endsWith(), entre otros.
+
+Creación de cadenas: Las cadenas se pueden crear utilizando literales de cadena (por ejemplo, "Hola"),
+o utilizando el constructor de String (new String("Hola")).
+
+La clase String es ampliamente utilizada en aplicaciones Java para manejar texto y manipular datos basados en texto. Es importante tener
+en cuenta la inmutabilidad de las cadenas al trabajar con ellas para evitar errores sutiles en el código.
