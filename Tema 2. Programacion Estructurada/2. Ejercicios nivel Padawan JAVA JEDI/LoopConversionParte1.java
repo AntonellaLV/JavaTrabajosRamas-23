@@ -1,14 +1,14 @@
 // 1. Convierto lo que me da la gana: Demuestre cómo convertir un bucle WHILE en un DO WHILE.
 
-public class LoopConversionWhileADoWhile {
+public class LoopConversionParte1 {
     public static void main(String[] args) {
         // Inicio de la ejecución del bucle WHILE
         System.out.println("Ejecucion con bucle WHILE:");
 
         // Inicialización del contador para el bucle WHILE
-        int contadorWhile = 10;
+        int contadorWhile = 1;
 
-        // Mientras el contadorWhile sea menor que 5, el bucle se ejecutará (en este caso no se ejecutará)
+        // Mientras el contadorWhile sea menor que 5, el bucle se ejecutará.
         while (contadorWhile < 5) {
             System.out.println("Numero con WHILE: " + contadorWhile);
             contadorWhile++;  // Incrementa el valor del contador
