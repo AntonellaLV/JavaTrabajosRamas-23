@@ -22,7 +22,7 @@ public class SumaDiagonal {
     public static int diagonalSum(int[][] array) {
         int suma = 0;
 
-        // Considerando que es una matriz cuadrada (n x n), usamos sólo un bucle
+        
         for (int i = 0; i < array.length; i++) {
             suma += array[i][i];
         }
