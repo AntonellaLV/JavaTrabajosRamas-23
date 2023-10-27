@@ -7,7 +7,7 @@ import ComercioElectronico.ejercicio2.entrada.InputConsoleService;
 public class Main {
     public static void main(String[] args) {
 
-        Cliente client = new Cliente("Carlos", "Avenida Siempre Viva", "Carlos1@carlos.com", "555-568794");
+        Cliente client = new Cliente("Antonella", "Avenida Siempre Viva", "Anto@gmail.com", "555-568794");
         int opt = 0;
 
         do {
