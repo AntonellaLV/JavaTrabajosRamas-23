@@ -1,6 +1,5 @@
 package ComercioElectronico.ejercicio2.domain;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,36 +73,30 @@ public class Cliente {
         this.orders = orders;
     }
 
-    public void confirmCarrito (){
-        if (this.getCart().getOrder().isEmpty()){
-            System.out.println("El carrito debe tener un producto al menos");
+    public void confirmarCarrito() {
+        if (cart.isEmpty()){
+            System.out.println("El carrito debe tener al menos un producto");
         } else {
-            Pedido order = new Pedido();
-            order.setCart(this.getCart());
-            order.setClient(this);
-            order.setDate(LocalDate.now());
-            order.setId(Pedido.autoGenerateID());
-            order.setStatus(EstadoPedido.PENDIENTE);
-            this.orders.add(order);
-            this.setCart(new Carrito(this));
-            System.out.println("Gracias por su compra, puede consultar el estado de su pedido en 'Mis Pedidos'");
+            Pedido pedido = new Pedido(cart, this);
+            orders.add(pedido);
+            cart = new Carrito(this);
+            System.out.println("Gracias por su compra. Puede consultar el estado en 'Mis Pedidos'");
         }
     }
 
-    public void emptyCart(){
-        this.getCart().getOrder().clear();
+    public void vaciarCarrito() {
+        cart.clear();
         System.out.println("El carrito fue vaciado");
     }
 
     public void addProduct(){
-        InputConsoleService.getScanner();
         System.out.println("Ingrese ID de producto");
         Long id = InputConsoleService.getScanner().nextLong();
         Producto prod = BdProductos.getProductById(id);
         if (prod!=null){
             System.out.println("Ingrese la cantidad de " + prod.getNombre() + ":");
             int qty = InputConsoleService.getScanner().nextInt();
-            if (this.cart.getOrder().containsKey(prod)){
+            if (this.cart.getProductos().containsKey(prod)){
                 this.cart.modifyQty(prod, qty);
             } else {
                 this.cart.addProduct(prod, qty);
@@ -114,43 +107,24 @@ public class Cliente {
     }
 
     public void removeProduct(){
-        InputConsoleService.getScanner();
         System.out.println("Ingrese ID de producto");
         Long id = InputConsoleService.getScanner().nextLong();
         Producto prod = BdProductos.getProductById(id);
-        System.out.println("Ingrese la cantidad de " + prod.getNombre() + ":");
-        int qty = InputConsoleService.getScanner().nextInt();
-        if (this.cart.getOrder().containsKey(prod)){
-            this.cart.modifyQty(prod, qty);
-        } else {
-            System.out.println("El producto no se encuentra en el carrito");
-        }
-    }
-
-    public void getOrdersToString(){
-        String sel;
-        System.out.println("Filtrar por estado:");
-        System.out.println("1 - Pendiente");
-        System.out.println("2 - Pagado");
-        System.out.println("3 - Enviado");
-        System.out.println("4 - Entregado");
-        System.out.println("0 - Todos los pedidos");
-        sel = String.format("%d", InputConsoleService.getScanner().nextInt());
-        while (!List.of("1","2","3","4", "0").contains(sel)){
-            System.out.println("Estado incorrecto, intente nuevamente");
-            sel = String.format("%d", InputConsoleService.getScanner().nextInt());
-        }
-        if (sel.equals("0")){
-            for(Pedido order : orders){
-                order.orderToString();
-            }
-        } else {
-            EstadoPedido status = EstadoPedido.values()[Integer.parseInt(sel)-1];
-            for(Pedido order : orders){
-                if(order.getStatus() == status){
-                    order.orderToString();
+        if (prod != null) {
+            if (this.cart.getProductos().containsKey(prod)) {
+                System.out.println("Ingrese la cantidad de " + prod.getNombre() + " que desea remover:");
+                int qtyToRemove = InputConsoleService.getScanner().nextInt();
+                int currentQty = this.cart.getProductos().get(prod);
+                if (currentQty > qtyToRemove) {
+                    this.cart.modifyQty(prod, currentQty - qtyToRemove);
+                } else {
+                    this.cart.removeProduct(prod);
                 }
+            } else {
+                System.out.println("El producto no se encuentra en el carrito");
             }
+        } else {
+            System.out.println("Producto inexistente");
         }
     }
 }

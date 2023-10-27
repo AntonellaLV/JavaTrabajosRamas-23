@@ -59,7 +59,11 @@ public class Producto {
         this.description = description;
     }
 
-    public void buy(int qty){
-        this.stock -= qty;
+    public void comprar(int qty){
+        if(stock >= qty) {
+            stock -= qty;
+        } else {
+            System.out.println("No hay suficiente stock.");
+        }
     }
 }
