@@ -35,17 +35,17 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("-".repeat(35));
-                    client.getCart().carritoToString();
+                    client.getCart().displayCart();  // Actualizado a displayCart
                     System.out.println("-".repeat(35));
                     break;
                 case 5:
-                    client.emptyCart();
+                    client.vaciarCarrito();  //clase Cliente
                     break;
                 case 6:
-                    client.confirmCarrito();
+                    client.confirmarCarrito();
                     break;
                 case 7:
-                    client.getOrdersToString();
+                    client.getOrders().forEach(pedido -> pedido.displayOrder()); // Actualizado a displayOrder
                     break;
                 case 0:
                     System.out.println("Salir");

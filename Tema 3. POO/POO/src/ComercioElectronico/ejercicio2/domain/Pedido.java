@@ -27,7 +27,7 @@ public class Pedido {
         System.out.println("-".repeat(35));
         System.out.println("id " + this.getId() + " - " + this.date.format(fmt) + " - Cliente: " + this.client.getName());
         System.out.println("-".repeat(35));
-        this.cart.displayCart();  // Nueva corrección, usamos displayCart() que es el nuevo método
+        this.cart.displayCart();  // Nueva corrección, displayCart() que es el nuevo método
         System.out.println("-".repeat(35));
         System.out.println("Total de compra: " + String.format("%.2f", this.calcularMonto()) + "\nEstado: " + this.status);
         System.out.println("-".repeat(35));
