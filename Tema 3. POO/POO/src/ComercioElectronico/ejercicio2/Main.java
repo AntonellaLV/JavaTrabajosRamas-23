@@ -6,56 +6,45 @@ import ComercioElectronico.ejercicio2.entrada.InputConsoleService;
 
 public class Main {
     public static void main(String[] args) {
+        //BdProductos.initProducts(); // Inicializar
+        InputConsoleService.getScanner(); // Crear un scanner para entrada
 
-        Cliente client = new Cliente("Antonella", "Avenida Siempre Viva", "Anto@gmail.com", "555-568794");
-        int opt = 0;
+        Cliente client = new Cliente("Juan", "Calle 123", "juan@email.com", "555-5555");
 
-        do {
-            System.out.println("1. Ver productos");
-            System.out.println("2. Agregar producto al carrito");
-            System.out.println("3. Sacar producto del carrito");
-            System.out.println("4. Ver carrito");
-            System.out.println("5. Vaciar carrito");
-            System.out.println("6. Comprar carrito");
-            System.out.println("7. Ver pedidos");
-            System.out.println("0. Salir");
+        while (true) {
+            displayMenu();
+            int choice = InputConsoleService.getScanner().nextInt();
 
-            System.out.println("Ingrese una opcion");
-            opt = InputConsoleService.getScanner().nextInt();
-
-            switch (opt){
+            switch (choice) {
                 case 1:
-                    BdProductos.listProducts();
-                    break;
-                case 2:
                     client.addProduct();
                     break;
-                case 3:
+                case 2:
                     client.removeProduct();
                     break;
-                case 4:
-                    System.out.println("-".repeat(35));
-                    client.getCart().displayCart();  // Actualizado a displayCart
-                    System.out.println("-".repeat(35));
-                    break;
-                case 5:
-                    client.vaciarCarrito();  //clase Cliente
-                    break;
-                case 6:
+                case 3:
                     client.confirmarCarrito();
                     break;
-                case 7:
-                    client.getOrders().forEach(pedido -> pedido.displayOrder()); // Actualizado a displayOrder
+                case 4:
+                    client.vaciarCarrito();
                     break;
-                case 0:
-                    System.out.println("Salir");
-                    break;
+                case 5:
+                    System.out.println("Gracias por su visita. ¡Hasta pronto!");
+                    return; // salir del programa
                 default:
-                    System.out.println("Error! Opcion invalida");
+                    System.out.println("Opción no reconocida. Intente nuevamente.");
+                    break;
             }
+        }
+    }
 
-        }while (opt != 0);
-
-        InputConsoleService.getScanner().close();
+    public static void displayMenu() {
+        System.out.println("\n=== Menu ===");
+        System.out.println("1. Añadir producto al carrito");
+        System.out.println("2. Remover producto del carrito");
+        System.out.println("3. Confirmar carrito");
+        System.out.println("4. Vaciar carrito");
+        System.out.println("5. Salir");
+        System.out.print("Elija una opción: ");
     }
 }

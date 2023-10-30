@@ -59,11 +59,18 @@ public class Producto {
         this.description = description;
     }
 
-    public void comprar(int qty){
+    public void reducirStock(int qty){
         if(stock >= qty) {
             stock -= qty;
         } else {
             System.out.println("No hay suficiente stock.");
+        }
+    }
+    public void aumentarStock(int qty){
+        if(qty > 0) {
+            stock += qty;
+        } else {
+            System.out.println("La cantidad a aumentar debe ser positiva.");
         }
     }
 }
