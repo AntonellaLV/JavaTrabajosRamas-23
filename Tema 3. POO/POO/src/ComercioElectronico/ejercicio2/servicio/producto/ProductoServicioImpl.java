@@ -2,6 +2,7 @@ package ComercioElectronico.ejercicio2.servicio.producto;
 
 import ComercioElectronico.ejercicio2.basededatos.BdProductos;
 import ComercioElectronico.ejercicio2.domain.Producto;
+import ComercioElectronico.ejercicio2.servicio.producto.ProductoServicioImpl;
 
 import java.util.Optional;
 

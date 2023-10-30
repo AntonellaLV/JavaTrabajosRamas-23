@@ -6,7 +6,7 @@ import ComercioElectronico.ejercicio2.domain.Producto;
 public class CarritoServicioImpl implements CarritoServicio {
 
     public static final String MENSAJE_CANTIDAD_MINIMA_TEMPLATE = "Debe ingresar una cantidad mayor que 0";
-    public static final int CANTIDAD_MINIMA = 0;
+    public static final int CANTIDAD_MINIMA = 1;
     public static final String MENSAJE_ALERTA_CANTIDAD_DISPONIBLE_TEMPLATE = "Solo quedan %d productos en stock";
 
     private Carrito carritoEnCurso;
