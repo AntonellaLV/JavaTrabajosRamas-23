@@ -4,7 +4,6 @@ import ComercioElectronico.ejercicio2.enums.EstadoPedido;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 public class Pedido {
 
     private Long id;
@@ -22,12 +21,13 @@ public class Pedido {
         this.cart = carrito;
         this.status = EstadoPedido.PENDIENTE;
     }
+
     public void displayOrder() {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("-".repeat(35));
         System.out.println("id " + this.getId() + " - " + this.date.format(fmt) + " - Cliente: " + this.client.getName());
         System.out.println("-".repeat(35));
-        this.cart.displayCart();  // Nueva corrección, displayCart() que es el nuevo método
+        this.cart.displayCart();
         System.out.println("-".repeat(35));
         System.out.println("Total de compra: " + String.format("%.2f", this.calcularMonto()) + "\nEstado: " + this.status);
         System.out.println("-".repeat(35));
@@ -37,7 +37,7 @@ public class Pedido {
         return this.id;
     }
 
-    public void setId(Long id) {
+    private void setId(Long id) {
         this.id = id;
     }
 

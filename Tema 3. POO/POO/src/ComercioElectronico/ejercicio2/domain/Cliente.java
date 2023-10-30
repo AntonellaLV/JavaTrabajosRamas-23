@@ -5,9 +5,9 @@ import java.util.List;
 
 import ComercioElectronico.ejercicio2.basededatos.BdProductos;
 import ComercioElectronico.ejercicio2.entrada.InputConsoleService;
-import ComercioElectronico.ejercicio2.enums.EstadoPedido;
 import ComercioElectronico.ejercicio2.servicio.carrito.CarritoServicio;
 import ComercioElectronico.ejercicio2.servicio.carrito.CarritoServicioImpl;
+import ComercioElectronico.ejercicio2.domain.Pedido;
 
 public class Cliente {
 
@@ -121,6 +121,19 @@ public class Cliente {
             }
         } else {
             System.out.println("Producto inexistente");
+        }
+    }
+
+    public void displayConfirmedOrders() {
+        if (orders.isEmpty()) {
+            System.out.println("No tiene pedidos confirmados.");
+            return;
+        }
+
+        System.out.println("\n=== Pedidos Confirmados ===");
+        for (Pedido pedido : orders) {
+            System.out.println("Pedido ID: " + pedido.getId() + " - Estado: " + pedido.getStatus().name());
+
         }
     }
 }
